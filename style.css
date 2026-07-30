@@ -1,0 +1,107 @@
+body {
+    background: rgb(99, 44, 30);
+   font-family: "Bricolage Grotesque", sans-serif;
+   color: aliceblue;
+   font-size: 18px;
+    line-height: 1.6;
+}
+
+
+
+#mainNav {
+  background-color: #2c1a0e; /* dark walnut */
+  font-family: "Rye", serif;
+}
+
+.nav1{
+    margin-right: 35px;
+}
+/* dark overlay so text is readable */
+#hero {
+  background-image: url('img/front.avif');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 1%;      
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgb(33, 31, 31);
+}
+
+h1 {
+  font-family: "Rye", serif;
+  font-size: 4rem;
+}
+
+.btn-book {
+  background-color: #753a0f;
+  color: white;
+  padding: 12px 32px;
+  border-radius: 4px;
+
+}
+
+
+#about{
+    display: flex;
+    justify-content: center;
+    padding: 48px 50px;
+    background-color: #2c1a0e;
+    font-family: "Rye", serif;
+    font-size: 2rem;
+    color: rgb(190, 196, 200);
+    border-bottom: 1px solid #ea9306;
+
+
+}
+
+.card1 {
+  background-color: #3d1a10;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #c9b99a;
+}
+
+
+.card1 h2 {
+  font-family: "Rye", serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  margin-bottom: 1rem;
+}
+
+.card1 p{
+    font-size: 1rem;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 300;
+    color: rgb(210, 200, 198);
+    
+}
+
+.container{
+    padding-top: 10px;
+   
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: 60vh; /* shorter on mobile */
+    background-position: center center;
+  }
+
+  h1 {
+    font-size: 2rem; /* smaller text on mobile too */
+  }
+
+  .hero-overlay{
+    bottom: 10%;
+  }
+}
