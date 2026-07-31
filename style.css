@@ -5,14 +5,14 @@ body {
    font-size: 18px;
     line-height: 1.6;
 }
- 
- 
- 
+
+
+
 #mainNav {
   background-color: #2c1a0e; /* dark walnut */
   font-family: "Rye", serif;
 }
- 
+
 .nav1{
     margin-right: 35px;
 }
@@ -27,7 +27,7 @@ body {
   width: 100%;
   
 }
- 
+
 .hero-overlay {
   position: absolute;
   top: 1%;      
@@ -36,21 +36,21 @@ body {
   text-align: center;
   color: rgb(33, 31, 31);
 }
- 
+
 h1 {
   font-family: "Rye", serif;
   font-size: 4rem;
 }
- 
+
 .btn-book {
   background-color: #753a0f;
   color: white;
   padding: 12px 32px;
   border-radius: 4px;
- 
+
 }
- 
- 
+
+
 #about{
     display: flex;
     justify-content: center;
@@ -60,24 +60,24 @@ h1 {
     font-size: 2rem;
     color: rgb(190, 196, 200);
     border-bottom: 1px solid #ea9306;
- 
- 
+
+
 }
- 
+
 .card1 {
   background-color: #3d1a10;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 8px;
   color: #c9b99a;
 }
- 
- 
+
+
 .card1 h2 {
   font-family: "Rye", serif;
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   margin-bottom: 1rem;
 }
- 
+
 .card1 p{
     font-size: 1rem;
     font-family: "Bricolage Grotesque", sans-serif;
@@ -85,12 +85,69 @@ h1 {
     color: rgb(210, 200, 198);
     
 }
- 
+
 .container{
     padding-top: 10px;
    
 }
- 
+
+/* FAQ PAGE */
+#faq-header {
+  background-color: #2c1a0e;
+  padding: 60px 20px 40px;
+  border-bottom: 1px solid #ea9306;
+}
+
+#faq-header h1 {
+  font-size: 3rem;
+}
+
+#faq-header p {
+  color: rgb(210, 200, 198);
+  font-size: 1.1rem;
+}
+
+#faq-content {
+  padding: 48px 20px;
+}
+
+.faq-accordion .accordion-item {
+  background-color: #3d1a10;
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-accordion .accordion-button {
+  background-color: #3d1a10;
+  color: #ea9306;
+  font-family: "Rye", serif;
+  font-size: 1.1rem;
+  box-shadow: none;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+  background-color: #4a2114;
+  color: #ea9306;
+  box-shadow: none;
+}
+
+.faq-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 2px #ea9306;
+}
+
+.faq-accordion .accordion-button::after {
+  filter: invert(66%) sepia(84%) saturate(429%) hue-rotate(358deg) brightness(97%) contrast(96%);
+}
+
+.faq-accordion .accordion-body {
+  color: rgb(210, 200, 198);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 300;
+  background-color: #3d1a10;
+}
+
 #contact {
   display: flex;
   flex-direction: column;
@@ -98,41 +155,41 @@ h1 {
   padding: 64px 20px;
   background-color: #2c1a0e;
 }
- 
+
 .contact-heading {
   font-family: "Rye", serif;
   color: #ea9306;
   margin-bottom: 1.5rem;
   text-align: center;
 }
- 
+
 .contact-form {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
 }
- 
+
 .contact-form .btn-book {
   display: block;
   width: 100%;
   margin-top: 0.5rem;
 }
- 
+
 .honeypot {
   position: absolute;
   left: -9999px;
 }
- 
+
 @media (max-width: 768px) {
   #hero {
     height: 60vh; /* shorter on mobile */
     background-position: center center;
   }
- 
+
   h1 {
     font-size: 2rem; /* smaller text on mobile too */
   }
- 
+
   .hero-overlay{
     bottom: 10%;
   }
