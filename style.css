@@ -91,6 +91,26 @@ h1 {
    
 }
 
+#contact {
+  padding: 48px 50px;
+  background-color: #2c1a0e;
+}
+
+.contact-heading {
+  font-family: "Rye", serif;
+  color: #ea9306;
+  margin-bottom: 1.5rem;
+}
+
+.contact-form {
+  max-width: 500px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
 @media (max-width: 768px) {
   #hero {
     height: 60vh; /* shorter on mobile */

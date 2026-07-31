@@ -155,14 +155,36 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
+    <div class="container-fluid">
+      <h2 class="contact-heading">Get In Touch</h2>
+
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+        <!-- Netlify needs this hidden input so it can parse the form at build time -->
+        <input type="hidden" name="form-name" value="contact">
+
+        <!-- Honeypot field: hidden from real visitors, catches spam bots -->
+        <p class="honeypot">
+          <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-book">Send Message</button>
+      </form>
+    </div>
   </section>
 
   <!-- FOOTER -->
