@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Woody Booth</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Your styles AFTER Bootstrap -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Rye&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg " data-bs-theme="dark" id="mainNav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/Logo.avif" alt="Logo" width="65" height="65" class="d-inline-block align-text-center">
+        Woody Booth
+      </a>
+      <div class="nav1">
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#rates">Rates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- GALLERY HEADER -->
+  <section id="faq-header">
+    <div class="container-fluid text-center">
+      <h1>Past Events</h1>
+      <p>A few of our favorite moments from Woody Booth sessions.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY GRID -->
+  <div class="container" id="gallery-content">
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Images are inserted here automatically by js/gallery.js -->
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content lightbox-content">
+        <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#10094;</button>
+        <img id="lightboxImage" src="" alt="Enlarged event photo">
+        <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photo">&#10095;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-copy text-center">© 2026 Woody Booth</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Gallery JS -->
+  <script src="js/gallery.js"></script>
+</body>
+</html>
