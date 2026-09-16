@@ -1,16 +1,24 @@
 body {
-    background: rgb(99, 44, 30);
+    background: rgb(58, 30, 20);
    font-family: "Bricolage Grotesque", sans-serif;
    color: aliceblue;
    font-size: 18px;
     line-height: 1.6;
 }
 
-
-
 #mainNav {
-  background-color: #2c1a0e; /* dark walnut */
-  font-family: "Rye", serif;
+  background-color: #221109; /* dark walnut */
+}
+
+.navbar-brand {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.nav-link {
+  font-weight: 500;
+  letter-spacing: .02em;
 }
 
 .nav1{
@@ -32,13 +40,19 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6) 0%,
+    rgba(0,0,0,0.15) 35%,
+    rgba(0,0,0,0.15) 65%,
+    rgba(0,0,0,0.65) 100%
+  );
   pointer-events: none;
 }
 
 .hero-text {
   position: absolute;
-  top: 8%;
+  top: 12%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -49,147 +63,227 @@ body {
   z-index: 1;
 }
 
+.hero-text h1 {
+  font-family: "Rye", serif;
+  font-size: 2.6rem;
+  letter-spacing: .03em;
+  margin-bottom: .75rem;
+}
+
 .hero-text p {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #e6dccb;
 }
 
 .hero-cta {
   position: absolute;
-  bottom: 6%;
+  bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
 }
 
-h1 {
-  font-family: "Rye", serif;
-  font-size: 3.2rem;
-}
-
 .btn-book {
-  background-color: #753a0f;
+  background-color: #7a4118;
+  border: 1px solid rgba(255,255,255,0.15);
   color: white;
   padding: 12px 32px;
-  border-radius: 4px;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  transition: background-color .2s ease, transform .15s ease;
+}
 
+.btn-book:hover {
+  background-color: #c98a3e;
+  color: white;
+  transform: translateY(-1px);
 }
 
 
 #about{
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 48px 50px;
-    background-color: #2c1a0e;
-    font-family: "Rye", serif;
-    font-size: 2rem;
-    color: rgb(190, 196, 200);
-    border-bottom: 1px solid #ea9306;
+    padding: 72px 8% 64px;
+    background-color: #f2e8d5;
+    text-align: left;
+}
 
+.about-copy {
+  max-width: 640px;
+}
 
+.about-copy h2 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #8a4f1f;
+  margin-bottom: 1rem;
+  letter-spacing: .01em;
+}
+
+.about-copy p {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #4a3626;
+  margin: 0;
 }
 
 .card1 {
-  background-color: #3d1a10;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
+  background-color: #331a10;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 2px solid #c98a3e;
+  border-radius: 6px;
   color: #c9b99a;
 }
 
+.card1 .card-icon {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 1rem;
+  color: #c98a3e;
+}
 
 .card1 h2 {
-  font-family: "Rye", serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  margin-bottom: 1rem;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  margin-bottom: .6rem;
+  color: #f2ece2;
 }
 
 .card1 p{
-    font-size: 1rem;
+    font-size: .98rem;
     font-family: "Bricolage Grotesque", sans-serif;
     font-weight: 300;
-    color: rgb(210, 200, 198);
-    
+    color: rgb(201, 189, 169);
+    margin: 0;
 }
 
 .container{
     padding-top: 10px;
-   
+
 }
 
-/* FAQ PAGE */
+/* PAGE HEADER (shared by FAQ + Gallery pages) */
 #faq-header {
-  background-color: #2c1a0e;
-  padding: 60px 20px 40px;
-  border-bottom: 1px solid #ea9306;
+  background-color: #f2e8d5;
+  padding: 64px 20px 56px;
+  text-align: center;
 }
 
 #faq-header h1 {
-  font-size: 3rem;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #8a4f1f;
+  margin-bottom: .6rem;
 }
 
 #faq-header p {
-  color: rgb(210, 200, 198);
-  font-size: 1.1rem;
+  color: #4a3626;
+  font-size: 1.05rem;
+  font-weight: 300;
 }
 
 #faq-content {
-  padding: 48px 20px;
+  padding: 56px 20px 72px;
 }
 
 .faq-accordion .accordion-item {
-  background-color: #3d1a10;
-  border: 1px solid rgba(255,255,255,0.1);
+  background-color: #331a10;
+  border: 1px solid rgba(255,255,255,0.08);
   margin-bottom: 12px;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .faq-accordion .accordion-button {
-  background-color: #3d1a10;
-  color: #ea9306;
-  font-family: "Rye", serif;
-  font-size: 1.1rem;
+  background-color: #331a10;
+  color: #e6dccb;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
   box-shadow: none;
 }
 
 .faq-accordion .accordion-button:not(.collapsed) {
-  background-color: #4a2114;
-  color: #ea9306;
+  background-color: #3d2013;
+  color: #c98a3e;
   box-shadow: none;
+  border-left: 2px solid #c98a3e;
 }
 
 .faq-accordion .accordion-button:focus {
-  box-shadow: 0 0 0 2px #ea9306;
+  box-shadow: 0 0 0 2px #c98a3e;
 }
 
 .faq-accordion .accordion-button::after {
-  filter: invert(66%) sepia(84%) saturate(429%) hue-rotate(358deg) brightness(97%) contrast(96%);
+  filter: invert(66%) sepia(24%) saturate(600%) hue-rotate(358deg) brightness(97%) contrast(90%);
 }
 
 .faq-accordion .accordion-body {
-  color: rgb(210, 200, 198);
+  color: rgb(201, 189, 169);
   font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 300;
-  background-color: #3d1a10;
+  background-color: #331a10;
 }
 
 /* GALLERY PAGE */
 #gallery-content {
-  padding: 48px 20px;
+  padding: 48px 20px 64px;
+}
+
+.gallery-filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #e6dccb;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: .9rem;
+  cursor: pointer;
+  font-family: "Bricolage Grotesque", sans-serif;
+  transition: all .15s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #c98a3e;
+  border-color: #c98a3e;
+  color: #2c1a0e;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: 160px;
   gap: 16px;
 }
 
 .gallery-item {
   position: relative;
-  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
   border: 1px solid rgba(255,255,255,0.1);
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item.hidden {
+  display: none;
 }
 
 .gallery-item img {
@@ -205,6 +299,18 @@ h1 {
   transform: scale(1.06);
 }
 
+.gallery-item .gallery-tag {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #f2ece2;
+  font-size: .7rem;
+  padding: 3px 9px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
 /* LIGHTBOX MODAL */
 .lightbox-content {
   background-color: transparent;
@@ -214,10 +320,27 @@ h1 {
 
 .lightbox-content #lightboxImage {
   max-width: 100%;
-  max-height: 85vh;
+  max-height: 80vh;
   margin: 0 auto;
   display: block;
   border-radius: 8px;
+  touch-action: pan-y;
+}
+
+.lightbox-caption {
+  color: #e6dccb;
+  font-size: .9rem;
+  text-align: center;
+  margin-top: 14px;
+  padding: 0 12px;
+}
+
+.lightbox-counter {
+  color: #c98a3e;
+  font-size: .85rem;
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: .05em;
 }
 
 .lightbox-close {
@@ -260,19 +383,20 @@ h1 {
 
 /* HOMEPAGE GALLERY TEASER */
 #gallery-teaser {
-  background-color: #2c1a0e;
-  padding: 56px 20px;
-  border-top: 1px solid #ea9306;
+  background-color: #3a1e14;
+  padding: 64px 20px;
 }
 
 .gallery-teaser-heading {
-  font-family: "Rye", serif;
-  color: #ea9306;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  color: #c98a3e;
 }
 
 .gallery-teaser-sub {
-  color: rgb(210, 200, 198);
-  margin-bottom: 1.5rem;
+  color: rgb(201, 189, 169);
+  margin-bottom: 1.75rem;
+  font-weight: 300;
 }
 
 .gallery-teaser-grid {
@@ -292,12 +416,13 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding: 64px 20px;
-  background-color: #2c1a0e;
+  background-color: #3a1e14;
 }
 
 .contact-heading {
-  font-family: "Rye", serif;
-  color: #ea9306;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  color: #c98a3e;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -324,7 +449,7 @@ h1 {
   width: auto;
   padding: 0 6px;
   font-size: 1rem;
-  color: #ea9306;
+  color: #c98a3e;
 }
 
 .contact-form .form-check-input {
@@ -333,8 +458,8 @@ h1 {
 }
 
 .contact-form .form-check-input:checked {
-  background-color: #ea9306;
-  border-color: #ea9306;
+  background-color: #c98a3e;
+  border-color: #c98a3e;
 }
 
 .contact-form .event-type-note {
@@ -347,18 +472,25 @@ h1 {
   left: -9999px;
 }
 
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #8a7c6c;
+  font-size: .9rem;
+}
+
 @media (max-width: 768px) {
   #hero {
     height: 90vh;
     background-position: center center;
   }
 
-  h1 {
-    font-size: 1.8rem;
+  .hero-text h1 {
+    font-size: 1.9rem;
   }
 
   .hero-text {
-    top: 6%;
+    top: 8%;
   }
 
   .hero-text p {
@@ -367,5 +499,10 @@ h1 {
 
   .hero-cta {
     bottom: 8%;
+  }
+
+  #about {
+    text-align: center;
+    justify-content: center;
   }
 }

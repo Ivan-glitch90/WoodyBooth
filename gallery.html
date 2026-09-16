@@ -56,6 +56,17 @@
     </div>
   </section>
 
+  <!-- GALLERY FILTERS -->
+  <div class="container">
+    <div class="gallery-filters" id="galleryFilters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="wedding">Weddings</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+      <button class="filter-btn" data-filter="festival">Festivals</button>
+      <button class="filter-btn" data-filter="product">Printed Strips</button>
+    </div>
+  </div>
+
   <!-- GALLERY GRID -->
   <div class="container" id="gallery-content">
     <div class="gallery-grid" id="galleryGrid">
@@ -71,6 +82,8 @@
         <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#10094;</button>
         <img id="lightboxImage" src="" alt="Enlarged event photo">
         <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photo">&#10095;</button>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <p class="lightbox-counter" id="lightboxCounter"></p>
       </div>
     </div>
   </div>
