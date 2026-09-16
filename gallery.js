@@ -52,6 +52,7 @@ const galleryPhotos = [
      src: "img/gallery/strip1.jpg",
     alt: "Printed 2x6 photo strip from a Woody Booth wedding session",
     cat: "product",
+    tall:true,
    },
 ];
 
