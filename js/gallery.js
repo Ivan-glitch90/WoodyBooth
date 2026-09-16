@@ -48,11 +48,12 @@ const galleryPhotos = [
   },
   // Once you have a real scan of a printed strip, add it here with
   // cat: "product" so it shows up under the "Printed Strips" filter.
-  // {
-  //   src: "img/gallery/strip1.jpg",
-  //   alt: "Printed 2x6 photo strip from a Woody Booth wedding session",
-  //   cat: "product",
-  // },
+  {
+     src: "img/gallery/strip1.jpg",
+    alt: "Printed 2x6 photo strip from a Woody Booth wedding session",
+    cat: "product",
+    tall:true,
+   },
 ];
 
 const galleryGrid = document.getElementById("galleryGrid");
