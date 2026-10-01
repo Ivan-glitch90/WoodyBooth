@@ -278,7 +278,14 @@
 
       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
         <!-- Netlify needs this hidden input so it can parse the form at build time -->
-        <input type="hidden" name="form-name" value="contact">
+        <!--<input type="hidden" name="form-name" value="contact">-->
+
+
+        <input type="hidden" name="subject" id="subject" value="New contact form submission">
+        <input type="text" name="name" id="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Message"></textarea>
+
 
         <!-- Honeypot field: hidden from real visitors, catches spam bots -->
         <p class="honeypot" aria-hidden="true">
