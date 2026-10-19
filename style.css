@@ -1,3 +1,15 @@
+/* Smooth scrolling for in-page links (About, Rates, Estimator).
+   Replaces the old js/main.js, which was never needed. */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
     background: rgb(58, 30, 20);
    font-family: "Bricolage Grotesque", sans-serif;
