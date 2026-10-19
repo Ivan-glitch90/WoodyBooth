@@ -497,6 +497,19 @@ body {
   display: none;
 }
 
+/* Printed strips are very tall and narrow, so show the whole strip
+   (never cropped) on a dark tile, with the label underneath it */
+.gallery-item.strip {
+  grid-row: span 3;
+  background: #2b150c;
+}
+
+.gallery-item.strip img {
+  object-fit: contain;
+  height: calc(100% - 38px);
+  padding: 12px 10px 0;
+}
+
 .gallery-item img {
   width: 100%;
   height: 100%;

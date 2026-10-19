@@ -13,6 +13,7 @@
 //      }
 // The grid, filters, and lightbox all update automatically.
 // Filter buttons with no photos in them are hidden automatically.
+// Photos with cat: "product" (printed strips) are shown in full, never cropped.
 // ============================================================
 const galleryPhotos = [
   {
@@ -32,10 +33,15 @@ const galleryPhotos = [
     cat: "corporate",
   },
   {
+    src: "img/gallery/corporate-circus-ticket-booth.jpg",
+    alt: "Circus-themed Woody Booth ticket booth with a performer on stilts and guests in costume at a corporate event",
+    cat: "corporate",
+    tall: true,
+  },
+  {
     src: "img/gallery/strip1.jpg",
     alt: "Printed 2x6 photo strip of four friends posing with props in the booth",
     cat: "product",
-    tall: true,
   },
   {
     src: "img/gallery/trailer-woody-mail.jpg",
@@ -72,7 +78,7 @@ let visibleIndices = galleryPhotos.map((_, i) => i);
 function renderGallery() {
   galleryPhotos.forEach((photo, index) => {
     const item = document.createElement("div");
-    item.className = "gallery-item" + (photo.tall ? " tall" : "");
+    item.className = "gallery-item" + (photo.tall ? " tall" : "") + (photo.cat === "product" ? " strip" : "");
     item.dataset.cat = photo.cat;
     item.setAttribute("data-bs-toggle", "modal");
     item.setAttribute("data-bs-target", "#lightboxModal");
