@@ -71,6 +71,25 @@
         corporate events, birthdays, and reunions alike. Prefer an indoor setup? Ask about our Cedar
         Chevron Woody Wall.</p>
     </div>
+
+    <figure class="about-media">
+      <div class="about-video-wrap">
+        <video id="aboutVideo" muted loop playsinline preload="metadata"
+               poster="img/inside-the-booth-poster.jpg"
+               aria-label="Two guests in costume props sitting inside the Woody Booth trailer">
+          <source src="video/inside-the-booth.mp4" type="video/mp4">
+        </video>
+        <button class="video-toggle" id="videoToggle" type="button" aria-label="Pause video">
+          <svg id="iconPause" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+            <rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/>
+          </svg>
+          <svg id="iconPlay" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true" style="display:none">
+            <path d="M3 1.5v11l9-5.5z"/>
+          </svg>
+        </button>
+      </div>
+      <figcaption class="about-caption">A peek inside the trailer</figcaption>
+    </figure>
   </section>
 
   <!-- SERVICES / RATES -->
@@ -433,6 +452,57 @@
   }
 
   ReactDOM.createRoot(document.getElementById("estimator-root")).render(h(Estimator));
+  </script>
+
+  <!-- About video: plays when it scrolls into view, with a pause button -->
+  <script>
+  (function () {
+    const video = document.getElementById("aboutVideo");
+    const toggle = document.getElementById("videoToggle");
+    if (!video || !toggle) return;
+    const iconPause = document.getElementById("iconPause");
+    const iconPlay = document.getElementById("iconPlay");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let userPaused = false;
+
+    function setState(playing) {
+      iconPause.style.display = playing ? "" : "none";
+      iconPlay.style.display = playing ? "none" : "";
+      toggle.setAttribute("aria-label", playing ? "Pause video" : "Play video");
+    }
+
+    function tryPlay() {
+      const p = video.play();
+      if (p && p.catch) p.catch(function () { setState(false); }); // autoplay blocked: keep the still frame
+    }
+
+    video.addEventListener("play", function () { setState(true); });
+    video.addEventListener("pause", function () { setState(false); });
+    setState(false);
+
+    // Visitor's own play/pause choice always wins
+    toggle.addEventListener("click", function () {
+      if (video.paused) { userPaused = false; tryPlay(); }
+      else { userPaused = true; video.pause(); }
+    });
+
+    // People who ask their device to reduce motion only see the still frame until they press play
+    if (reduceMotion) return;
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            if (!userPaused) tryPlay();
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.4 }).observe(video);
+    } else {
+      tryPlay();
+    }
+  })();
   </script>
 
   <!-- Your JS -->
