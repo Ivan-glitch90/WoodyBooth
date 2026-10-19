@@ -38,7 +38,7 @@
           <a class="nav-link" href="faq.html">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html#contact">Contact</a>
+          <a class="nav-link" href="contact.html">Contact</a>
         </li>
         
       </ul>
@@ -58,7 +58,7 @@
     <p>A vintage trailer, restored and reimagined as a photo booth for weddings, celebrations, and events.</p>
   </div>
   <div class="hero-buttons">
-    <a href="#contact" class="btn btn-book">Book Now</a>
+    <a href="contact.html" class="btn btn-book">Book Now</a>
     <a href="tel:14255037050" class="btn btn-call">Call Us</a>
   </div>
 </section>
@@ -136,7 +136,7 @@
               <li>Complete setup &amp; tear down</li>
             </ul>
             <p class="package-note">Taxes and setup included in personalized quote.</p>
-            <a href="#contact" class="btn btn-book w-100">Book Now</a>
+            <a href="contact.html" class="btn btn-book w-100">Book Now</a>
           </div>
         </div>
 
@@ -153,7 +153,7 @@
               <li>Early setup / flexible timing all day</li>
               <li>Custom wood photo guest book — bottle up your memories into a keepsake that lasts a lifetime</li>
             </ul>
-            <a href="#contact" class="btn btn-book w-100">Book Now</a>
+            <a href="contact.html" class="btn btn-book w-100">Book Now</a>
           </div>
         </div>
 
@@ -172,7 +172,7 @@
               <li>Woody Wall — indoor open-air booth</li>
               <li>Champagne bar — the trailer doubles as a mini bar</li>
             </ul>
-            <a href="#contact" class="btn btn-book w-100">Book Now</a>
+            <a href="contact.html" class="btn btn-book w-100">Book Now</a>
           </div>
         </div>
 
@@ -271,98 +271,14 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container-fluid">
-      <h2 class="contact-heading">Get In Touch</h2>
+  <!-- ESTIMATOR -->
+  <section id="estimator">
+    <h2 class="estimator-heading">Plan your event</h2>
+    <p class="estimator-sub">Build an estimate, then send us your details and we'll follow up with a personalized quote.</p>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-        <!-- Netlify needs this hidden input so it can parse the form at build time -->
-        <input type="hidden" name="form-name" value="contact">
-
-
-        
-
-
-        <!-- Honeypot field: hidden from real visitors, catches spam bots -->
-        <p class="honeypot" aria-hidden="true">
-          <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-        </p>
-
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" name="name" required placeholder="Your name">
-        </div>
-
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="phone" class="form-label">Phone Number</label>
-          <input type="tel" class="form-control" id="phone" name="phone" placeholder="(555) 555-5555" required>
-        </div>
-
-        <fieldset class="mb-3">
-          <legend class="form-label h6">Type of Event</legend>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="event_type" id="eventFestival" value="Festival (charge per sitting)" required>
-            <label class="form-check-label" for="eventFestival">
-              Festival <span class="event-type-note">(charge per sitting)</span>
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="event_type" id="eventPrivate" value="Private (photos included in rental)">
-            <label class="form-check-label" for="eventPrivate">
-              Private <span class="event-type-note">(photos included in rental)</span>
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="event_type" id="eventCorporate" value="Corporate (photos included in rental)">
-            <label class="form-check-label" for="eventCorporate">
-              Corporate <span class="event-type-note">(photos included in rental)</span>
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="event_type" id="eventOther" value="Other">
-            <label class="form-check-label" for="eventOther">Other</label>
-          </div>
-
-          <input type="text" class="form-control mt-2" id="event_type_other" name="event_type_other" placeholder="If other, please specify">
-        </fieldset>
-
-        <div class="mb-3">
-          <label for="attendees" class="form-label">Number of Attendees</label>
-          <input type="number" min="1" class="form-control" id="attendees" name="attendees" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="event_dates" class="form-label">Date(s)</label>
-          <input type="text" class="form-control" id="event_dates" name="event_dates" placeholder="e.g. Aug 15, 2026" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="hours" class="form-label">Hours of Booth Operation <span class="event-type-note">(3 hour minimum)</span></label>
-          <input type="number" min="3" step="0.5" class="form-control" id="hours" name="hours" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="location" class="form-label">Location</label>
-          <input type="text" class="form-control" id="location" name="location" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="message" class="form-label">Anything special we should know about the event?</label>
-          <textarea class="form-control" id="message" name="message" rows="6"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-book">Send Message</button>
-      </form>
+    <div class="estimator-block">
+      <div id="estimator-root"></div>
+      <p class="est-skip">Prefer to skip the estimate? <a href="contact.html">Contact us directly</a></p>
     </div>
   </section>
 
@@ -387,17 +303,138 @@
   <!-- Bootstrap JS -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   
-  <!--New subject JS
+  <!-- ESTIMATOR (React, used only on this page) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
   <script>
-  document.querySelector('form[name="contact"]').addEventListener('submit', function () {
-    const name = document.getElementById('name').value.trim();
-    const eventDate = document.getElementById('event_dates').value.trim();
-    const sent = new Date().toLocaleString();
+  // ============================================================
+  // SAMPLE RATES: swap in the real ones before going live
+  // ============================================================
+  const HOURLY = 175;
+  const MIN_HOURS = 2, MAX_HOURS = 6;
+  const FREE_MILES = 20, PER_MILE = 2;
+  const ADDONS = [
+    { id: "strip",  name: "Custom strip design", desc: "Your names, date and colors printed on every strip", price: 50 },
+    { id: "book",   name: "Guest scrapbook", desc: "Guests paste a strip and sign; you keep the book", price: 100 },
+    { id: "drop",   name: "Backdrop upgrade", desc: "Sequin, floral or rustic wood instead of the standard", price: 75 },
+    { id: "gallery",name: "Online gallery", desc: "Every photo in a shareable link the next day", price: 40 },
+  ];
+  // ============================================================
 
-    document.getElementById('subject').value =
-      `Booking request: ${name} – ${eventDate} (sent ${sent})`;
-  });
-</script>-->
+  const CONTACT_PAGE = "contact.html";
+
+  const { useState, useMemo, useEffect, useRef } = React;
+  const h = React.createElement;
+  const money = n => "$" + n.toLocaleString("en-US");
+
+  function Estimator() {
+    const [hours, setHours] = useState(3);
+    const [picked, setPicked] = useState({ gallery: true });
+    const [miles, setMiles] = useState(15);
+
+    const quote = useMemo(() => {
+      const base = hours * HOURLY;
+      const extras = ADDONS.filter(a => picked[a.id]);
+      const extrasTotal = extras.reduce((s, a) => s + a.price, 0);
+      const extraMiles = Math.max(0, (Number(miles) || 0) - FREE_MILES);
+      const travel = extraMiles * PER_MILE;
+      return { base, extras, extrasTotal, travel, extraMiles, total: base + extrasTotal + travel };
+    }, [hours, picked, miles]);
+
+    // Little pulse on the total whenever it changes
+    const totalRef = useRef(null);
+    useEffect(() => {
+      const el = totalRef.current; if (!el) return;
+      el.classList.remove("est-bump"); void el.offsetWidth; el.classList.add("est-bump");
+    }, [quote.total]);
+
+    const toggle = id => setPicked(p => ({ ...p, [id]: !p[id] }));
+
+    // The estimate travels to the contact page in the link
+    const params = new URLSearchParams({
+      hours: String(hours),
+      extras: quote.extras.length ? quote.extras.map(a => a.name).join(", ") : "None",
+      miles: String(Number(miles) || 0),
+      total: money(quote.total)
+    });
+    const contactHref = `${CONTACT_PAGE}?${params.toString()}`;
+
+    return h("div", { className: "est-root" },
+      h("div", { className: "est-head" },
+        h("h3", null, "Build your booth"),
+        h("p", null, "Pick how long you want the trailer, add the extras, and see your price before you book.")
+      ),
+      h("div", { className: "est-grid" },
+
+        // LEFT: the receipt strip
+        h("div", { className: "est-strip-col" },
+          h("div", { className: "est-strip", "aria-live": "polite" },
+            h("div", { className: "est-frame" },
+              h("span", { className: "k" }, "Booth time"),
+              h("span", { className: "v" }, `${hours} hours · ${money(quote.base)}`)
+            ),
+            h("div", { className: "est-frame" },
+              h("span", { className: "k" }, "Extras"),
+              quote.extras.length
+                ? h("ul", null, quote.extras.map(a => h("li", { key: a.id }, `${a.name} ${money(a.price)}`)))
+                : h("span", { className: "v" }, "None added")
+            ),
+            h("div", { className: "est-frame" },
+              h("span", { className: "k" }, "Travel"),
+              h("span", { className: "v" }, quote.travel ? `${quote.extraMiles} extra mi · ${money(quote.travel)}` : "Free")
+            ),
+            h("div", { className: "est-frame total" },
+              h("span", { className: "k" }, "Estimated total"),
+              h("span", { className: "v", ref: totalRef }, money(quote.total))
+            ),
+            h("div", { className: "est-strip-foot" }, "Woody Booth")
+          ),
+          h("a", { className: "est-cta", href: contactHref }, "Request this quote")
+        ),
+
+        // RIGHT: the options panel
+        h("div", { className: "est-panel" },
+          h("fieldset", null,
+            h("legend", null, "How long?"),
+            h("p", { className: "est-hint" }, `${money(HOURLY)} per hour, ${MIN_HOURS}-hour minimum`),
+            h("div", { className: "est-hours" },
+              h("input", {
+                type: "range", min: MIN_HOURS, max: MAX_HOURS, step: 1, value: hours,
+                "aria-label": "Hours", onChange: e => setHours(Number(e.target.value))
+              }),
+              h("output", null, `${hours} hr`)
+            )
+          ),
+          h("fieldset", null,
+            h("legend", null, "Extras"),
+            h("div", { className: "est-addons" },
+              ADDONS.map(a => h("label", { key: a.id, className: "est-addon" },
+                h("input", { type: "checkbox", checked: !!picked[a.id], onChange: () => toggle(a.id) }),
+                h("span", null, h("span", { className: "name" }, a.name), h("span", { className: "desc" }, a.desc)),
+                h("span", { className: "price" }, "+" + money(a.price))
+              ))
+            )
+          ),
+          h("fieldset", null,
+            h("legend", null, "How far is the venue?"),
+            h("p", { className: "est-hint" }, `First ${FREE_MILES} miles free, then ${money(PER_MILE)} a mile`),
+            h("div", { className: "est-miles" },
+              h("input", {
+                type: "number", min: 0, inputMode: "numeric", value: miles, "aria-label": "Miles to venue",
+                onChange: e => setMiles(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))
+              }),
+              h("span", null, "miles")
+            )
+          )
+        )
+      ),
+      h("p", { className: "est-note" }, "Sample rates for demo purposes.")
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("estimator-root")).render(h(Estimator));
+  </script>
+
   <!-- Your JS -->
   <script src="js/main.js"></script>
 </body>

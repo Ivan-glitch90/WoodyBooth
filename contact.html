@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Woody Booth</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Your styles AFTER Bootstrap -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Rye&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg " data-bs-theme="dark" id="mainNav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/Logo.avif" alt="Logo" width="65" height="65" class="d-inline-block align-text-center">
+        Woody Booth
+      </a>
+      <div class="nav1">
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#rates">Rates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="contact-header">
+    <h1>Request your quote</h1>
+    <p>Tell us about your event and we'll follow up with availability and a personalized quote.</p>
+  </section>
+
+  <!-- FORM -->
+  <main class="contact-main">
+    <div class="contact-wrap">
+
+      <!-- Filled in by the script at the bottom of the page -->
+      <div class="est-summary" id="estimateSummary" aria-live="polite"></div>
+
+      <form name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" id="contactForm">
+        <!-- Netlify needs this hidden input so it can parse the form at build time -->
+        <input type="hidden" name="form-name" value="contact">
+
+        <!-- Honeypot field: hidden from real visitors, catches spam bots -->
+        <p class="honeypot" aria-hidden="true">
+          <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <!-- Estimate details, filled in from the link by the script below -->
+        <input type="hidden" name="hours" id="f_hours" value="">
+        <input type="hidden" name="extras" id="f_extras" value="">
+        <input type="hidden" name="miles_to_venue" id="f_miles" value="">
+        <input type="hidden" name="estimated_total" id="f_total" value="">
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="(555) 555-5555" required>
+        </div>
+
+        <fieldset class="mb-3">
+          <legend class="form-label h6">Type of Event</legend>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="event_type" id="eventFestival" value="Festival (charge per sitting)" required>
+            <label class="form-check-label" for="eventFestival">
+              Festival <span class="event-type-note">(charge per sitting)</span>
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="event_type" id="eventPrivate" value="Private (photos included in rental)">
+            <label class="form-check-label" for="eventPrivate">
+              Private <span class="event-type-note">(photos included in rental)</span>
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="event_type" id="eventCorporate" value="Corporate (photos included in rental)">
+            <label class="form-check-label" for="eventCorporate">
+              Corporate <span class="event-type-note">(photos included in rental)</span>
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="event_type" id="eventOther" value="Other">
+            <label class="form-check-label" for="eventOther">Other</label>
+          </div>
+
+          <input type="text" class="form-control mt-2" id="event_type_other" name="event_type_other" placeholder="If other, please specify">
+        </fieldset>
+
+        <div class="mb-3">
+          <label for="attendees" class="form-label">Number of Attendees</label>
+          <input type="number" min="1" class="form-control" id="attendees" name="attendees" required>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-6">
+            <label for="event_date" class="form-label">Event date</label>
+            <input type="date" class="form-control" id="event_date" name="event_date" required>
+          </div>
+          <div class="col-6">
+            <label for="event_end_date" class="form-label">End date <span class="event-type-note">(if more than 1 day)</span></label>
+            <input type="date" class="form-control" id="event_end_date" name="event_end_date">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Event address</label>
+          <input type="text" class="form-control" id="location" name="location" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Anything special we should know about the event?</label>
+          <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-book">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="img/Logo.avif" width="34" height="34" alt="">
+      Woody Booth
+    </div>
+    <p class="footer-copy">&copy; 2026 Woody Booth &middot; <a href="mailto:book@woodybooth.com">book@woodybooth.com</a></p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/woody.booth/" aria-label="Woody Booth on Instagram" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <script>
+  // Read the estimate from the link and carry it into the form
+  (function () {
+    const q = new URLSearchParams(window.location.search);
+    const summary = document.getElementById("estimateSummary");
+
+    const hours = Number(q.get("hours"));
+    const miles = Number(q.get("miles"));
+    const extras = (q.get("extras") || "").slice(0, 300);
+    const total = /^\$[\d,]+$/.test(q.get("total") || "") ? q.get("total") : "";
+
+    function line(titleText, bodyText, linkText) {
+      summary.textContent = "";
+      const title = document.createElement("span");
+      title.className = "est-title";
+      title.textContent = titleText;
+      summary.appendChild(title);
+      summary.appendChild(document.createTextNode(bodyText + " "));
+      const a = document.createElement("a");
+      a.href = "index.html#estimator";
+      a.textContent = linkText;
+      summary.appendChild(a);
+    }
+
+    if (hours > 0 && total) {
+      document.getElementById("f_hours").value = hours;
+      document.getElementById("f_extras").value = extras || "None";
+      document.getElementById("f_miles").value = miles > 0 ? miles : 0;
+      document.getElementById("f_total").value = total;
+
+      const extrasText = extras && extras !== "None" ? extras : "no extras";
+      line("Your estimate",
+        hours + " hours, " + extrasText + ", " + (miles > 0 ? miles : 0) + " miles to the venue. Estimated total " + total + ".",
+        "Change estimate");
+    } else {
+      line("No estimate attached", "Want a rough price first?", "Build an estimate");
+    }
+
+    // Calendar rules: no past dates, and the end date can't come before the start date
+    const startInput = document.getElementById("event_date");
+    const endInput = document.getElementById("event_end_date");
+    const now = new Date();
+    const pad = n => String(n).padStart(2, "0");
+    const today = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+    startInput.min = today;
+    endInput.min = today;
+    startInput.addEventListener("change", function () {
+      endInput.min = startInput.value || today;
+      if (endInput.value && endInput.value < endInput.min) endInput.value = "";
+    });
+  })();
+  </script>
+</body>
+</html>

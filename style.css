@@ -619,22 +619,6 @@ body {
   padding: 12px 32px;
 }
 
-#contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 64px 20px;
-  background-color: #3a1e14;
-}
-
-.contact-heading {
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 700;
-  color: #c98a3e;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
 .contact-form {
   width: 100%;
   max-width: 480px;
@@ -781,3 +765,257 @@ footer {
     justify-content: center;
   }
 }
+
+/* ============================================================
+   ESTIMATOR (homepage)
+   ============================================================ */
+#estimator {
+  background-color: #3a1e14;
+  padding: 64px 20px 72px;
+}
+
+.estimator-heading {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  color: #c98a3e;
+  text-align: center;
+  margin-bottom: .4rem;
+}
+
+.estimator-sub {
+  text-align: center;
+  color: rgb(201, 189, 169);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.estimator-block {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.est-skip {
+  text-align: center;
+  margin: 1.75rem 0 0;
+  color: #c9bda9;
+  font-weight: 300;
+  font-size: .95rem;
+}
+.est-skip a { color: #c98a3e; font-weight: 600; text-decoration: none; }
+.est-skip a:hover { text-decoration: underline; }
+
+.est-root {
+  --paper: #FBF8F1;
+  --ink: #2B2118;
+  --muted: #6B5D4F;
+  --teal: #2C7A78;
+  --teal-ink: #FBF8F1;
+  --mustard: #D9A33B;
+  --line: #CFC4B0;
+  --field: #EAE6DA;
+  --strip: #2B2118;
+  --strip-text: #FBF8F1;
+  --frame: #FBF8F1;
+
+  /* Frame around the whole estimator, same yellow as the strip's shadow */
+  border: 3px solid var(--mustard);
+  border-radius: 18px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.est-root *, .est-root *::before, .est-root *::after { box-sizing: border-box; }
+
+.est-head h3 {
+  font-family: "Rye", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1.05;
+  margin: 0 0 .5rem;
+  color: #f2ece2;
+}
+.est-head p {
+  margin: 0 0 1.75rem;
+  color: #c9bda9;
+  max-width: 52ch;
+}
+
+.est-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 760px) {
+  .est-grid { grid-template-columns: 300px 1fr; align-items: start; }
+}
+@media (max-width: 759px) {
+  .est-panel { order: 1; }
+  .est-strip-col { order: 2; }
+}
+
+.est-panel {
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+.est-panel fieldset { border: 0; padding: 0; margin: 0 0 1.5rem; }
+.est-panel fieldset:last-child { margin-bottom: 0; }
+.est-panel legend {
+  float: none;
+  width: auto;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: .6rem;
+  padding: 0;
+}
+.est-hint { color: var(--muted); font-size: .9rem; margin: -.3rem 0 .75rem; }
+
+.est-hours { display: flex; align-items: center; gap: 1rem; }
+.est-hours output {
+  font-family: "Rye", Georgia, serif;
+  font-size: 1.75rem;
+  min-width: 4.5ch;
+}
+.est-hours input[type=range] { flex: 1; accent-color: var(--teal); height: 2rem; }
+
+.est-addons { display: grid; gap: .6rem; }
+.est-addon {
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  padding: .75rem .85rem;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s;
+}
+.est-addon:has(input:checked) {
+  border-color: var(--teal);
+  background: color-mix(in srgb, var(--teal) 10%, transparent);
+}
+.est-addon input {
+  margin-top: .3rem;
+  accent-color: var(--teal);
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+}
+.est-addon .name { font-weight: 600; display: block; }
+.est-addon .desc { color: var(--muted); font-size: .88rem; display: block; }
+.est-addon .price { margin-left: auto; font-weight: 600; white-space: nowrap; }
+
+.est-miles { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.est-miles input {
+  width: 6.5rem;
+  font: inherit;
+  font-size: 1.1rem;
+  padding: .5rem .65rem;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+}
+
+.est-root :focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
+
+/* The photo strip (on the left) */
+.est-strip-col { position: relative; }
+@media (min-width: 760px) {
+  .est-strip-col { position: sticky; top: 1rem; }
+}
+.est-strip {
+  background: var(--strip);
+  color: var(--strip-text);
+  padding: 14px 14px 18px;
+  border-radius: 4px;
+  max-width: 300px;
+  margin: 0 auto;
+  transform: rotate(-1.5deg);
+  box-shadow: 6px 8px 0 var(--mustard);
+}
+.est-frame {
+  background: var(--frame);
+  color: var(--ink);
+  border-radius: 2px;
+  padding: .7rem .8rem;
+  margin-bottom: 10px;
+  min-height: 64px;
+}
+.est-frame .k { font-size: .85rem; color: var(--muted); display: block; }
+.est-frame .v { font-weight: 600; }
+.est-frame ul { margin: .2rem 0 0; padding-left: 1.1rem; font-size: .92rem; }
+.est-frame.total { text-align: center; }
+.est-frame.total .v {
+  font-family: "Rye", Georgia, serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  display: block;
+}
+.est-bump { animation: est-bump .35s ease; }
+@keyframes est-bump { 40% { transform: scale(1.08); } }
+.est-strip-foot {
+  font-family: "Rye", Georgia, serif;
+  text-align: center;
+  font-size: 1rem;
+  margin: 4px 0 0;
+}
+
+/* "Request this quote" is a real link, so it can open in a new tab too */
+.est-cta {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 1.5rem auto 0;
+  padding: .85rem 1rem;
+  font: inherit;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--teal-ink);
+}
+.est-cta:hover { color: var(--teal-ink); filter: brightness(1.08); }
+.est-cta:active { transform: translateY(1px); }
+.est-note { margin-top: 1.5rem; font-size: .85rem; color: #8a7c6c; }
+
+@media (prefers-reduced-motion: reduce) {
+  .est-bump { animation: none; }
+  .est-addon { transition: none; }
+}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-header {
+  background-color: #2b150c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 26px 20px 22px;
+  text-align: center;
+}
+.contact-header h1 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #f2ece2;
+  margin: 0 0 .2rem;
+}
+.contact-header p { color: #b8ab98; font-size: .95rem; font-weight: 300; margin: 0; }
+
+.contact-main { padding: 36px 20px 72px; }
+.contact-wrap { max-width: 480px; margin: 0 auto; }
+
+/* The estimate carried over from the homepage */
+.est-summary {
+  border: 1px solid rgba(217, 163, 59, 0.6);
+  border-left: 4px solid #D9A33B;
+  border-radius: 6px;
+  background: rgba(217, 163, 59, 0.08);
+  color: #e6dccb;
+  font-size: .95rem;
+  padding: .85rem 1rem;
+  margin: 0 0 1.75rem;
+}
+.est-summary .est-title { font-weight: 700; color: #f2ece2; display: block; margin-bottom: .15rem; }
+.est-summary a { color: #D9A33B; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.est-summary a:hover { text-decoration: underline; }
