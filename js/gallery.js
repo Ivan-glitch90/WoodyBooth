@@ -1,60 +1,62 @@
 // ============================================================
 // HOW TO ADD NEW EVENT PHOTOS:
 // 1. Drop your photo file into the img/gallery/ folder
+//    (tip: resize it to about 1600px wide first)
 // 2. Add an entry to the galleryPhotos array below:
 //      {
 //        src: "img/gallery/yourfile.jpg",
 //        alt: "A short, specific description of the photo",
-//        cat: "wedding" | "corporate" | "festival" | "product",
-//        tall: true  (optional — use for portrait-orientation
+//        cat: "wedding" | "corporate" | "festival" | "booth" | "product",
+//        tall: true  (optional: use for portrait-orientation
 //                     photos so the grid gives them extra height
 //                     instead of cropping them into a square)
 //      }
 // The grid, filters, and lightbox all update automatically.
+// Filter buttons with no photos in them are hidden automatically.
 // ============================================================
 const galleryPhotos = [
   {
-    src: "img/gallery/event1.jpg",
-    alt: "Woody Booth event photo",
+    src: "img/gallery/wedding-couple-instagram-frame.jpg",
+    alt: "Bride and groom holding a Woody Booth Instagram-style frame in front of the vintage trailer",
     cat: "wedding",
     tall: true,
   },
   {
-    src: "img/gallery/event2.jpg",
-    alt: "Woody Booth event photo",
+    src: "img/gallery/trailer-front-red-carpet.jpg",
+    alt: "Woody Booth vintage wood trailer with its PHOTOS marquee sign, open door and red carpet entrance",
+    cat: "booth",
+  },
+  {
+    src: "img/gallery/corporate-carnival-woody-wall.jpg",
+    alt: "Carnival-themed Woody Wall with a custom neon sign, striped balloons and carnival props at a corporate event",
     cat: "corporate",
   },
   {
-    src: "img/gallery/event3.jpg",
-    alt: "Woody Booth event photo",
-    cat: "festival",
-    tall: true,
-  },
-  {
-    src: "img/gallery/event4.jpg",
-    alt: "Woody Booth event photo",
-    cat: "wedding",
-  },
-  {
-    src: "img/gallery/event5.jpg",
-    alt: "Woody Booth event photo",
-    cat: "corporate",
-    tall: true,
-  },
-  {
-    src: "img/gallery/event6.jpg",
-    alt: "Woody Booth event photo",
-    cat: "festival",
-  },
-  // Once you have a real scan of a printed strip, add it here with
-  // cat: "product" so it shows up under the "Printed Strips" filter.
-  {
-     src: "img/gallery/strip1.jpg",
-    alt: "Printed 2x6 photo strip from a Woody Booth wedding session",
+    src: "img/gallery/strip1.jpg",
+    alt: "Printed 2x6 photo strip of four friends posing with props in the booth",
     cat: "product",
-    tall:true,
-   },
+    tall: true,
+  },
+  {
+    src: "img/gallery/trailer-woody-mail.jpg",
+    alt: "Woody Booth trailer with the Woody Mail guest mailbox and a red carpet leading to the door",
+    cat: "booth",
+  },
+  {
+    src: "img/gallery/trailer-patio-setup.jpg",
+    alt: "Woody Booth trailer set up on a covered patio with a bar stool, cocktail table and red carpet",
+    cat: "booth",
+  },
 ];
+
+// Friendly labels for the little tag on each photo
+const categoryLabels = {
+  wedding: "Wedding",
+  corporate: "Corporate",
+  festival: "Festival",
+  booth: "The booth",
+  product: "Printed strip",
+};
 
 const galleryGrid = document.getElementById("galleryGrid");
 const lightboxImage = document.getElementById("lightboxImage");
@@ -85,7 +87,7 @@ function renderGallery() {
 
     const tag = document.createElement("span");
     tag.className = "gallery-tag";
-    tag.textContent = photo.cat;
+    tag.textContent = categoryLabels[photo.cat] || photo.cat;
 
     item.appendChild(img);
     item.appendChild(tag);
@@ -141,6 +143,14 @@ function applyFilter(filter) {
 document.addEventListener("DOMContentLoaded", () => {
   renderGallery();
   lightboxModal = new bootstrap.Modal(lightboxModalEl);
+
+  // Hide filter buttons that have no photos yet
+  filterButtons.forEach((btn) => {
+    const filter = btn.dataset.filter;
+    if (filter !== "all" && !galleryPhotos.some((p) => p.cat === filter)) {
+      btn.hidden = true;
+    }
+  });
 
   document.querySelector(".lightbox-next").addEventListener("click", showNextPhoto);
   document.querySelector(".lightbox-prev").addEventListener("click", showPrevPhoto);
