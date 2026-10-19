@@ -65,6 +65,9 @@
         <!-- Netlify needs this hidden input so it can parse the form at build time -->
         <input type="hidden" name="form-name" value="contact">
 
+        <!-- Email subject line. Each request gets a different one, so Gmail starts a new conversation every time -->
+        <input type="hidden" name="subject" id="f_subject" value="New Woody Booth quote request (%{submissionId})">
+
         <!-- Honeypot field: hidden from real visitors, catches spam bots -->
         <p class="honeypot" aria-hidden="true">
           <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
@@ -224,6 +227,23 @@
     startInput.addEventListener("change", function () {
       endInput.min = startInput.value || today;
       if (endInput.value && endInput.value < endInput.min) endInput.value = "";
+    });
+
+    // Build a unique, readable email subject when the form is sent
+    document.getElementById("contactForm").addEventListener("submit", function () {
+      const name = (document.getElementById("name").value || "").trim().slice(0, 60);
+      let eventDate = "";
+      if (startInput.value) {
+        const p = startInput.value.split("-");
+        eventDate = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]))
+          .toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      }
+      const sent = new Date();
+      const stamp = pad(sent.getHours()) + ":" + pad(sent.getMinutes()) + ":" + pad(sent.getSeconds());
+      document.getElementById("f_subject").value =
+        "Quote request from " + (name || "website visitor") +
+        (eventDate ? ", " + eventDate : "") +
+        " (sent " + stamp + ")";
     });
   })();
   </script>
