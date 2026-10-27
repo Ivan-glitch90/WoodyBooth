@@ -74,9 +74,11 @@
         </p>
 
         <!-- Estimate details, filled in from the link by the script below -->
+        <input type="hidden" name="setup" id="f_setup" value="">
+        <input type="hidden" name="guests_tier" id="f_guests" value="">
         <input type="hidden" name="hours" id="f_hours" value="">
         <input type="hidden" name="extras" id="f_extras" value="">
-        <input type="hidden" name="miles_to_venue" id="f_miles" value="">
+        <input type="hidden" name="travel_distance" id="f_travel" value="">
         <input type="hidden" name="estimated_total" id="f_total" value="">
 
         <div class="mb-3">
@@ -173,6 +175,7 @@
         </svg>
       </a>
     </div>
+    <p class="footer-credit">Website by <a href="https://www.linkedin.com/in/ivan-robles-943967b6/" target="_blank" rel="noopener">Ivan Robles</a></p>
   </footer>
 
   <!-- Bootstrap JS -->
@@ -184,9 +187,13 @@
     const q = new URLSearchParams(window.location.search);
     const summary = document.getElementById("estimateSummary");
 
+    const clean = (v, max) => (v || "").replace(/[<>]/g, "").slice(0, max);
+    const setup = clean(q.get("setup"), 40);
+    const guests = clean(q.get("guests"), 40);
     const hours = Number(q.get("hours"));
-    const miles = Number(q.get("miles"));
-    const extras = (q.get("extras") || "").slice(0, 300);
+    const extras = clean(q.get("extras"), 300);
+    const travel = clean(q.get("travel"), 40);
+    const expenses = q.get("exp") === "1";
     const total = /^\$[\d,]+$/.test(q.get("total") || "") ? q.get("total") : "";
 
     function line(titleText, bodyText, linkText) {
@@ -202,15 +209,19 @@
       summary.appendChild(a);
     }
 
-    if (hours > 0 && total) {
+    if (setup && hours > 0 && total) {
+      document.getElementById("f_setup").value = setup;
+      document.getElementById("f_guests").value = guests;
       document.getElementById("f_hours").value = hours;
       document.getElementById("f_extras").value = extras || "None";
-      document.getElementById("f_miles").value = miles > 0 ? miles : 0;
-      document.getElementById("f_total").value = total;
+      document.getElementById("f_travel").value = travel;
+      document.getElementById("f_total").value = total + (expenses ? " plus travel expenses" : "");
 
-      const extrasText = extras && extras !== "None" ? extras : "no extras";
+      const extrasText = extras && extras !== "None" ? "extras: " + extras : "no extras";
       line("Your estimate",
-        hours + " hours, " + extrasText + ", " + (miles > 0 ? miles : 0) + " miles to the venue. Estimated total " + total + ".",
+        setup + ", " + guests.toLowerCase() + ", " + hours + " hours, " + extrasText +
+        ". Travel: " + travel.toLowerCase() + " from the Space Needle. Estimated total " + total +
+        (expenses ? " plus travel expenses" : "") + ".",
         "Change estimate");
     } else {
       line("No estimate attached", "Want a rough price first?", "Build an estimate");

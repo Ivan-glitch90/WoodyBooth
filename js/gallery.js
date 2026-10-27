@@ -28,6 +28,11 @@ const galleryPhotos = [
     cat: "booth",
   },
   {
+    src: "img/gallery/strip-black-white-captain-hats.jpg",
+    alt: "Black and white printed photo strip of three friends in captain hats and sunglasses with a champagne bottle prop",
+    cat: "product",
+  },
+  {
     src: "img/gallery/corporate-carnival-woody-wall.jpg",
     alt: "Carnival-themed Woody Wall with a custom neon sign, striped balloons and carnival props at a corporate event",
     cat: "corporate",
@@ -39,18 +44,23 @@ const galleryPhotos = [
     tall: true,
   },
   {
+    src: "img/gallery/trailer-patio-setup.jpg",
+    alt: "Woody Booth trailer set up on a covered patio with a bar stool, cocktail table and red carpet",
+    cat: "booth",
+  },
+  {
     src: "img/gallery/strip1.jpg",
     alt: "Printed 2x6 photo strip of four friends posing with props in the booth",
     cat: "product",
   },
   {
-    src: "img/gallery/trailer-woody-mail.jpg",
-    alt: "Woody Booth trailer with the Woody Mail guest mailbox and a red carpet leading to the door",
-    cat: "booth",
+    src: "img/gallery/strip-suits-ukulele.jpg",
+    alt: "Printed photo strip of friends in suits with a ukulele and sunglasses props in front of a floral wall and neon sign",
+    cat: "product",
   },
   {
-    src: "img/gallery/trailer-patio-setup.jpg",
-    alt: "Woody Booth trailer set up on a covered patio with a bar stool, cocktail table and red carpet",
+    src: "img/gallery/trailer-woody-mail.jpg",
+    alt: "Woody Booth trailer with the Woody Mail guest mailbox and a red carpet leading to the door",
     cat: "booth",
   },
 ];

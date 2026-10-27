@@ -275,6 +275,30 @@ body {
   margin-bottom: 1.25rem;
 }
 
+.package-price .from {
+  font-size: .85rem;
+  font-weight: 500;
+  color: #c9bda9;
+  margin-right: .3rem;
+}
+
+.package-price .amt {
+  font-size: 1.7rem;
+  line-height: 1.1;
+}
+
+.package-features.priced li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.package-features.priced .p {
+  white-space: nowrap;
+  color: #e6dccb;
+  font-weight: 500;
+}
+
 .package-features {
   list-style: none;
   padding: 0;
@@ -701,14 +725,38 @@ footer {
 
 .site-footer {
   background-color: #221109;
-  padding: 28px 6%;
-  display: flex;
+  padding: 22px 6% 14px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px 16px;
   border-top: 1px solid rgba(255,255,255,0.08);
   text-align: left;
+}
+
+/* Logo and name on the left, copyright truly centered, Instagram on the right */
+.site-footer .footer-brand { justify-self: start; }
+.site-footer .footer-copy { text-align: center; }
+.site-footer .footer-social { justify-self: end; }
+
+/* Developer credit: its own slim line below the Woody Booth row */
+.footer-credit {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+  font-size: .78rem;
+  line-height: 1.4;
+  color: #8a7c6c;
+}
+
+.footer-credit a {
+  color: #b8ab98;
+  text-decoration: none;
+}
+
+.footer-credit a:hover {
+  color: #c98a3e;
+  text-decoration: underline;
 }
 
 .footer-brand {
@@ -758,10 +806,18 @@ footer {
   color: #2c1a0e;
 }
 
-@media (max-width: 576px) {
+/* Phones and tablets: stack the footer and center everything */
+@media (max-width: 900px) {
   .site-footer {
-    justify-content: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
     text-align: center;
+    row-gap: 14px;
+  }
+
+  .site-footer .footer-brand,
+  .site-footer .footer-social {
+    justify-self: center;
   }
 }
 
@@ -913,43 +969,39 @@ footer {
 }
 .est-hours input[type=range] { flex: 1; accent-color: var(--teal); height: 2rem; }
 
-.est-addons { display: grid; gap: .6rem; }
-.est-addon {
+/* Radio cards (setup, guests, travel) and checkbox cards (extras) share one look */
+.est-options { display: grid; gap: .6rem; }
+.est-options.two { grid-template-columns: 1fr 1fr; }
+.est-options.chips { grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); }
+@media (max-width: 480px) { .est-options.two { grid-template-columns: 1fr; } }
+
+.est-option {
   display: flex;
-  gap: .75rem;
+  gap: .65rem;
   align-items: flex-start;
-  padding: .75rem .85rem;
+  padding: .7rem .85rem;
   border: 1.5px solid var(--line);
   border-radius: 10px;
   cursor: pointer;
   transition: border-color .15s, background-color .15s;
 }
-.est-addon:has(input:checked) {
+.est-option:has(input:checked) {
   border-color: var(--teal);
   background: color-mix(in srgb, var(--teal) 10%, transparent);
 }
-.est-addon input {
+.est-option input {
   margin-top: .3rem;
   accent-color: var(--teal);
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.05rem;
+  height: 1.05rem;
   flex: none;
 }
-.est-addon .name { font-weight: 600; display: block; }
-.est-addon .desc { color: var(--muted); font-size: .88rem; display: block; }
-.est-addon .price { margin-left: auto; font-weight: 600; white-space: nowrap; }
+.est-option .name { font-weight: 600; display: block; }
+.est-option .desc { color: var(--muted); font-size: .84rem; display: block; line-height: 1.35; }
+.est-option .price { margin-left: auto; font-weight: 600; white-space: nowrap; }
+.est-option .was { text-decoration: line-through; color: var(--muted); font-weight: 400; margin-right: .35rem; }
 
-.est-miles { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
-.est-miles input {
-  width: 6.5rem;
-  font: inherit;
-  font-size: 1.1rem;
-  padding: .5rem .65rem;
-  border: 1.5px solid var(--line);
-  border-radius: 8px;
-  background: var(--field);
-  color: var(--ink);
-}
+.est-fineprint { color: var(--muted); font-size: .8rem; line-height: 1.4; margin: .85rem 0 0; }
 
 .est-root :focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
 
@@ -977,7 +1029,8 @@ footer {
   min-height: 64px;
 }
 .est-frame .k { font-size: .85rem; color: var(--muted); display: block; }
-.est-frame .v { font-weight: 600; }
+.est-frame .v { font-weight: 600; display: block; }
+.est-frame .sub { font-size: .88rem; display: block; }
 .est-frame ul { margin: .2rem 0 0; padding-left: 1.1rem; font-size: .92rem; }
 .est-frame.total { text-align: center; }
 .est-frame.total .v {
@@ -987,6 +1040,7 @@ footer {
   line-height: 1.1;
   display: block;
 }
+.est-frame.total .plus { font-size: .78rem; color: var(--muted); display: block; margin-top: .15rem; }
 .est-bump { animation: est-bump .35s ease; }
 @keyframes est-bump { 40% { transform: scale(1.08); } }
 .est-strip-foot {
@@ -1015,11 +1069,11 @@ footer {
 }
 .est-cta:hover { color: var(--teal-ink); filter: brightness(1.08); }
 .est-cta:active { transform: translateY(1px); }
-.est-note { margin-top: 1.5rem; font-size: .85rem; color: #8a7c6c; }
+.est-note { margin-top: 1.5rem; font-size: .85rem; color: #a99d8c; max-width: 70ch; }
 
 @media (prefers-reduced-motion: reduce) {
   .est-bump { animation: none; }
-  .est-addon { transition: none; }
+  .est-option { transition: none; }
 }
 
 /* ============================================================

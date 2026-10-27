@@ -59,7 +59,6 @@
   </div>
   <div class="hero-buttons">
     <a href="contact.html" class="btn btn-book">Book Now</a>
-    <a href="tel:14255037050" class="btn btn-call">Call Us</a>
   </div>
 </section>
 
@@ -133,15 +132,16 @@
   <section id="packages">
     <div class="container">
       <h2 class="packages-heading">Packages</h2>
-      <p class="packages-sub">Every package is fully customized — reach out for a personalized quote.</p>
+      <p class="packages-sub">Choose the Booth or the Wall, then add what you like. Build an estimate to see your total.</p>
 
       <div class="row g-4">
 
         <div class="col-12 col-lg-4">
-          <div class="package-card h-100">
-            <h3>Mobile Photo Booth</h3>
-            <p class="package-duration">3+ hrs</p>
-            <p class="package-price">Call for quote</p>
+          <div class="package-card h-100 package-featured">
+            <span class="package-badge">Most popular</span>
+            <h3>Woody Booth</h3>
+            <p class="package-duration">The vintage trailer. Up to 130 guests, 3 hours included</p>
+            <p class="package-price"><span class="from">From</span><span class="amt">$1,200</span></p>
             <ul class="package-features">
               <li>Unlimited 2"x6" double prints</li>
               <li>Digital sharing for social</li>
@@ -149,49 +149,46 @@
               <li>Fun party props</li>
               <li>1–2 friendly onsite operators</li>
               <li>Cedar or sequins backdrop</li>
-              <li>Custom screen to match event</li>
-              <li>Logo branding</li>
+              <li>Custom screen and logo branding</li>
               <li>Enclosed private booth</li>
               <li>Complete setup &amp; tear down</li>
             </ul>
-            <p class="package-note">Taxes and setup included in personalized quote.</p>
-            <a href="contact.html" class="btn btn-book w-100">Book Now</a>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-4">
-          <div class="package-card h-100 package-featured">
-            <span class="package-badge">Most popular</span>
-            <h3>Wedding</h3>
-            <p class="package-duration">3–4 hrs, complete unlimited package</p>
-            <p class="package-price">Call for quote</p>
-            <ul class="package-features">
-              <li>Everything in Mobile Photo Booth</li>
-              <li>Neon sign installation</li>
-              <li>Champagne bar</li>
-              <li>Early setup / flexible timing all day</li>
-              <li>Custom wood photo guest book — bottle up your memories into a keepsake that lasts a lifetime</li>
-            </ul>
-            <a href="contact.html" class="btn btn-book w-100">Book Now</a>
+            <p class="package-note">130 to 200 guests $1,400. Extra hours $200 each.</p>
+            <a href="#estimator" class="btn btn-book w-100">Build your estimate</a>
           </div>
         </div>
 
         <div class="col-12 col-lg-4">
           <div class="package-card h-100">
-            <h3>+Xtra</h3>
-            <p class="package-duration">Add-on customizations</p>
-            <p class="package-price">Call for quote</p>
+            <h3>Woody Wall</h3>
+            <p class="package-duration">Indoor, open-air setup. Up to 130 guests, 3 hours included</p>
+            <p class="package-price"><span class="from">From</span><span class="amt">$1,000</span></p>
             <ul class="package-features">
-              <li>Custom neon sign &amp; installation</li>
-              <li>Themed props</li>
-              <li>Custom backdrop</li>
-              <li>Woody lounge / early setup</li>
-              <li>Beer / wine pong</li>
-              <li>Cornhole</li>
-              <li>Woody Wall — indoor open-air booth</li>
-              <li>Champagne bar — the trailer doubles as a mini bar</li>
+              <li>Cedar chevron wall backdrop</li>
+              <li>Indoor, open-air photo setup</li>
+              <!-- Add here once confirmed what else the Wall includes (prints, props, branding) -->
             </ul>
-            <a href="contact.html" class="btn btn-book w-100">Book Now</a>
+            <p class="package-note">130 to 200 guests $1,200. Extra hours $150 each.</p>
+            <a href="#estimator" class="btn btn-book w-100">Build your estimate</a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="package-card h-100">
+            <h3>Add-ons</h3>
+            <p class="package-duration">Mix and match with either setup</p>
+            <p class="package-price"><span class="from">From</span><span class="amt">$25</span></p>
+            <ul class="package-features priced">
+              <li><span>LED signs</span><span class="p">$200</span></li>
+              <li><span>Custom photo book</span><span class="p">$125</span></li>
+              <li><span>Digital photo storage</span><span class="p">$25</span></li>
+              <li><span>Photo strip magnets</span><span class="p">$50</span></li>
+              <li><span>Beer or wine pong</span><span class="p">$150</span></li>
+              <li><span>Champagne bar</span><span class="p">$150</span></li>
+              <li><span>Branded cornhole</span><span class="p">$150</span></li>
+            </ul>
+            <p class="package-note">Travel beyond 50 miles from the Space Needle is extra.</p>
+            <a href="#estimator" class="btn btn-book w-100">Build your estimate</a>
           </div>
         </div>
 
@@ -230,7 +227,7 @@
     <div class="container">
       <h2 class="testimonials-heading">What people are saying</h2>
 
-      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
         <div class="carousel-inner">
 
           <div class="carousel-item active">
@@ -269,6 +266,15 @@
             </div>
           </div>
 
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <div class="quote-mark">&ldquo;</div>
+              <p class="testimonial-text">As I compile the survey feedback, I'm seeing the photo booth called out as one of the most popular parts of the reunion.</p>
+              <p class="testimonial-name">Brian Feutz</p>
+              <p class="testimonial-event">Issaquah HS '76 Reunion</p>
+            </div>
+          </div>
+
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
@@ -285,6 +291,7 @@
           <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
           <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
           <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3" aria-label="Testimonial 4"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4" aria-label="Testimonial 5"></button>
         </div>
       </div>
     </div>
@@ -317,6 +324,7 @@
         </svg>
       </a>
     </div>
+    <p class="footer-credit">Website by <a href="https://www.linkedin.com/in/ivan-robles-943967b6/" target="_blank" rel="noopener">Ivan Robles</a></p>
   </footer>
 
   <!-- Bootstrap JS -->
@@ -327,16 +335,36 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
   <script>
   // ============================================================
-  // SAMPLE RATES: swap in the real ones before going live
+  // RATES: change prices here
   // ============================================================
-  const HOURLY = 175;
-  const MIN_HOURS = 2, MAX_HOURS = 6;
-  const FREE_MILES = 20, PER_MILE = 2;
+  const INCLUDED_HOURS = 3;
+  const MAX_HOURS = 8;
+
+  const SETUPS = {
+    booth: { name: "Woody Booth", desc: "The vintage trailer",     base: { small: 1200, large: 1400 }, extraHour: 200 },
+    wall:  { name: "Woody Wall",  desc: "Indoor, open-air setup",  base: { small: 1000, large: 1200 }, extraHour: 150 },
+  };
+
+  const GUESTS = [
+    { id: "small", label: "Up to 130 guests" },
+    { id: "large", label: "130 to 200 guests" },
+  ];
+
   const ADDONS = [
-    { id: "strip",  name: "Custom strip design", desc: "Your names, date and colors printed on every strip", price: 50 },
-    { id: "book",   name: "Guest scrapbook", desc: "Guests paste a strip and sign; you keep the book", price: 100 },
-    { id: "drop",   name: "Backdrop upgrade", desc: "Sequin, floral or rustic wood instead of the standard", price: 75 },
-    { id: "gallery",name: "Online gallery", desc: "Every photo in a shareable link the next day", price: 40 },
+    { id: "led",      name: "LED signs",                    desc: "Lit signs for your event", price: 200 },
+    { id: "book",     name: "Custom photo book",            desc: "A keepsake for your photos", price: 125 },
+    { id: "storage",  name: "Digital photo storage",        desc: "Your photos stored online for 30 days", price: 25, was: 50 },
+    { id: "magnets",  name: "Photo strip display magnets",  desc: "Unlimited per event", price: 50 },
+    { id: "pong",     name: "Beer or wine pong",            desc: "Includes cups, balls and a branded table. Alcohol provided by you.", price: 150 },
+    { id: "bubbly",   name: "Champagne bar",                desc: "Includes plastic flutes, chilling in the Woody Cooler and serving. Alcohol provided by you.", price: 150 },
+    { id: "cornhole", name: "Branded cornhole",             desc: "We provide the game and beanbags", price: 150 },
+  ];
+
+  const TRAVEL = [
+    { id: "near",   label: "Under 50 miles",     fee: 0 },
+    { id: "mid",    label: "50 to 100 miles",    fee: 150, expenses: true },
+    { id: "far",    label: "100 to 200 miles",   fee: 250, expenses: true },
+    { id: "custom", label: "More than 200 miles", fee: 0, expenses: true, custom: true },
   ];
   // ============================================================
 
@@ -347,18 +375,25 @@
   const money = n => "$" + n.toLocaleString("en-US");
 
   function Estimator() {
-    const [hours, setHours] = useState(3);
-    const [picked, setPicked] = useState({ gallery: true });
-    const [miles, setMiles] = useState(15);
+    const [setup, setSetup] = useState("booth");
+    const [guests, setGuests] = useState("small");
+    const [hours, setHours] = useState(INCLUDED_HOURS);
+    const [picked, setPicked] = useState({});
+    const [travel, setTravel] = useState("near");
 
     const quote = useMemo(() => {
-      const base = hours * HOURLY;
+      const s = SETUPS[setup];
+      const base = s.base[guests];
+      const extraHours = Math.max(0, hours - INCLUDED_HOURS);
+      const hoursCost = extraHours * s.extraHour;
       const extras = ADDONS.filter(a => picked[a.id]);
-      const extrasTotal = extras.reduce((s, a) => s + a.price, 0);
-      const extraMiles = Math.max(0, (Number(miles) || 0) - FREE_MILES);
-      const travel = extraMiles * PER_MILE;
-      return { base, extras, extrasTotal, travel, extraMiles, total: base + extrasTotal + travel };
-    }, [hours, picked, miles]);
+      const extrasTotal = extras.reduce((sum, a) => sum + a.price, 0);
+      const t = TRAVEL.find(x => x.id === travel);
+      return {
+        s, base, extraHours, hoursCost, extras, t,
+        total: base + hoursCost + extrasTotal + t.fee
+      };
+    }, [setup, guests, hours, picked, travel]);
 
     // Little pulse on the total whenever it changes
     const totalRef = useRef(null);
@@ -368,20 +403,27 @@
     }, [quote.total]);
 
     const toggle = id => setPicked(p => ({ ...p, [id]: !p[id] }));
+    const guestLabel = GUESTS.find(g => g.id === guests).label;
 
     // The estimate travels to the contact page in the link
     const params = new URLSearchParams({
+      setup: quote.s.name,
+      guests: guestLabel,
       hours: String(hours),
       extras: quote.extras.length ? quote.extras.map(a => a.name).join(", ") : "None",
-      miles: String(Number(miles) || 0),
+      travel: quote.t.label,
+      exp: quote.t.expenses ? "1" : "0",
       total: money(quote.total)
     });
     const contactHref = `${CONTACT_PAGE}?${params.toString()}`;
 
+    const travelLine = quote.t.custom ? "Per agreement"
+      : quote.t.fee ? `${money(quote.t.fee)} + expenses` : "Included";
+
     return h("div", { className: "est-root" },
       h("div", { className: "est-head" },
         h("h3", null, "Build your booth"),
-        h("p", null, "Pick how long you want the trailer, add the extras, and see your price before you book.")
+        h("p", null, "Pick your setup, add the extras, and see your price before you book.")
       ),
       h("div", { className: "est-grid" },
 
@@ -389,8 +431,10 @@
         h("div", { className: "est-strip-col" },
           h("div", { className: "est-strip", "aria-live": "polite" },
             h("div", { className: "est-frame" },
-              h("span", { className: "k" }, "Booth time"),
-              h("span", { className: "v" }, `${hours} hours · ${money(quote.base)}`)
+              h("span", { className: "k" }, quote.s.name),
+              h("span", { className: "v" }, `${guestLabel.replace(" guests", "")} guests, ${INCLUDED_HOURS} hours · ${money(quote.base)}`),
+              quote.extraHours > 0 && h("span", { className: "sub" },
+                `+${quote.extraHours} extra ${quote.extraHours === 1 ? "hour" : "hours"} · ${money(quote.hoursCost)}`)
             ),
             h("div", { className: "est-frame" },
               h("span", { className: "k" }, "Extras"),
@@ -400,11 +444,12 @@
             ),
             h("div", { className: "est-frame" },
               h("span", { className: "k" }, "Travel"),
-              h("span", { className: "v" }, quote.travel ? `${quote.extraMiles} extra mi · ${money(quote.travel)}` : "Free")
+              h("span", { className: "v" }, `${quote.t.label} · ${travelLine}`)
             ),
             h("div", { className: "est-frame total" },
               h("span", { className: "k" }, "Estimated total"),
-              h("span", { className: "v", ref: totalRef }, money(quote.total))
+              h("span", { className: "v", ref: totalRef }, money(quote.total)),
+              quote.t.expenses && h("span", { className: "plus" }, "plus travel expenses")
             ),
             h("div", { className: "est-strip-foot" }, "Woody Booth")
           ),
@@ -413,41 +458,79 @@
 
         // RIGHT: the options panel
         h("div", { className: "est-panel" },
+
+          h("fieldset", null,
+            h("legend", null, "Which setup?"),
+            h("div", { className: "est-options two" },
+              Object.entries(SETUPS).map(([id, s]) => h("label", { key: id, className: "est-option" },
+                h("input", { type: "radio", name: "setup", checked: setup === id, onChange: () => setSetup(id) }),
+                h("span", null, h("span", { className: "name" }, s.name), h("span", { className: "desc" }, s.desc)),
+                h("span", { className: "price" }, money(s.base[guests]))
+              ))
+            )
+          ),
+
+          h("fieldset", null,
+            h("legend", null, "How many guests?"),
+            h("div", { className: "est-options chips" },
+              GUESTS.map(g => h("label", { key: g.id, className: "est-option" },
+                h("input", { type: "radio", name: "guests", checked: guests === g.id, onChange: () => setGuests(g.id) }),
+                h("span", { className: "name" }, g.label)
+              ))
+            ),
+            h("p", { className: "est-fineprint" }, "More than 200 guests? Contact us for a custom quote.")
+          ),
+
           h("fieldset", null,
             h("legend", null, "How long?"),
-            h("p", { className: "est-hint" }, `${money(HOURLY)} per hour, ${MIN_HOURS}-hour minimum`),
+            h("p", { className: "est-hint" },
+              `Includes ${INCLUDED_HOURS} hours, then ${money(quote.s.extraHour)} for each extra hour`),
             h("div", { className: "est-hours" },
               h("input", {
-                type: "range", min: MIN_HOURS, max: MAX_HOURS, step: 1, value: hours,
+                type: "range", min: INCLUDED_HOURS, max: MAX_HOURS, step: 1, value: hours,
                 "aria-label": "Hours", onChange: e => setHours(Number(e.target.value))
               }),
               h("output", null, `${hours} hr`)
             )
           ),
+
           h("fieldset", null,
             h("legend", null, "Extras"),
-            h("div", { className: "est-addons" },
-              ADDONS.map(a => h("label", { key: a.id, className: "est-addon" },
+            h("div", { className: "est-options" },
+              ADDONS.map(a => h("label", { key: a.id, className: "est-option" },
                 h("input", { type: "checkbox", checked: !!picked[a.id], onChange: () => toggle(a.id) }),
-                h("span", null, h("span", { className: "name" }, a.name), h("span", { className: "desc" }, a.desc)),
-                h("span", { className: "price" }, "+" + money(a.price))
+                h("span", null,
+                  h("span", { className: "name" }, a.name),
+                  h("span", { className: "desc" }, a.desc),
+                  a.was && h("span", { className: "desc" }, `Normally ${money(a.was)}, ${money(a.price)} with a booking`)
+                ),
+                h("span", { className: "price" },
+                  a.was && h("span", { className: "was" }, money(a.was)),
+                  "+" + money(a.price))
               ))
-            )
+            ),
+            h("p", { className: "est-fineprint" },
+              "Alcohol is provided by the customer. We are not responsible for any alcohol-related incidents or the behavior of attendees, and we retain the right to refuse service.")
           ),
+
           h("fieldset", null,
             h("legend", null, "How far is the venue?"),
-            h("p", { className: "est-hint" }, `First ${FREE_MILES} miles free, then ${money(PER_MILE)} a mile`),
-            h("div", { className: "est-miles" },
-              h("input", {
-                type: "number", min: 0, inputMode: "numeric", value: miles, "aria-label": "Miles to venue",
-                onChange: e => setMiles(e.target.value === "" ? "" : Math.max(0, Number(e.target.value)))
-              }),
-              h("span", null, "miles")
-            )
+            h("p", { className: "est-hint" }, "Distance from the Space Needle in Seattle"),
+            h("div", { className: "est-options chips" },
+              TRAVEL.map(t => h("label", { key: t.id, className: "est-option" },
+                h("input", { type: "radio", name: "travel", checked: travel === t.id, onChange: () => setTravel(t.id) }),
+                h("span", null,
+                  h("span", { className: "name" }, t.label),
+                  h("span", { className: "desc" }, t.custom ? "Per agreement" : t.fee ? `${money(t.fee)} + expenses` : "No travel fee")
+                )
+              ))
+            ),
+            h("p", { className: "est-fineprint" }, "Travel expenses (hotel, meals, tolls) are agreed with you in advance.")
           )
         )
       ),
-      h("p", { className: "est-note" }, "Sample rates for demo purposes.")
+      h("p", { className: "est-note" },
+        "This is an estimate. Your personalized quote will include taxes and any travel expenses. Festivals are charged per sitting, so contact us for those.")
     );
   }
 

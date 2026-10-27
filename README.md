@@ -20,12 +20,12 @@ Built as a redesign of the business's existing site, with a focus on a more poli
 
 ## Features
 
-- **Quote estimator** – visitors pick booth hours, extras and travel distance and watch a photo-strip-style receipt update live. "Request this quote" opens the contact page with the estimate already attached.
+- **Quote estimator** – visitors pick a setup (Booth or Wall), guest count, hours, extras and travel distance, and watch a photo-strip-style receipt update live. "Request this quote" opens the contact page with the estimate already attached.
 - **Contact form with Netlify Forms** – no backend needed. Includes spam protection (honeypot), calendar date pickers, and a unique email subject per request so every inquiry arrives as its own email conversation.
 - **Custom thank-you page** after the form is sent.
 - **Photo gallery** – category filters, masonry-style layout, a lightbox with swipe and arrow-key support, a photo counter, and descriptive alt text. Printed photo strips are shown in full instead of being cropped.
 - **"Peek inside" video** in the About section that starts when scrolled into view, with a pause button. Respects the visitor's "reduce motion" setting.
-- **Packages and testimonials** – three package tiers and a testimonial carousel with real client quotes.
+- **Packages and testimonials** – Booth, Wall and add-on cards with starting prices that match the estimator, plus a testimonial carousel with real client quotes.
 - **FAQ** accordion, plus Instagram and email links in the footer on every page.
 - **Responsive** layout built mobile-first with Bootstrap.
 
@@ -79,7 +79,7 @@ This is a static site, so there's no build step:
 
 ## Notes
 
-- The prices in the quote estimator are **sample rates** for demonstration and are labeled that way on the page. They live in one clearly marked block at the bottom of `index.html` and are meant to be swapped for the real rates.
+- The quote estimator uses the business's real rates (Booth or Wall, guest tiers, extra hours, add-ons and travel zones). They live in one clearly marked block at the bottom of `index.html`, so a price change is a one-line edit.
 - Adding gallery photos takes two steps: drop the file in `img/gallery/` and add one entry to the list at the top of `js/gallery.js`.
 
 ## What I Learned
@@ -97,7 +97,7 @@ This is a static site, so there's no build step:
 - [x] Add a real image gallery
 - [x] Add real testimonials
 - [x] Deploy to Netlify and link the live site above
-- [ ] Replace the sample estimator rates with the real ones
+- [x] Replace the sample estimator rates with the real ones
 - [ ] Add click and visit analytics
 - [ ] Add more event photos, especially guests using the booth
 
