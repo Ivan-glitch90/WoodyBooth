@@ -933,9 +933,9 @@ footer {
   max-width: 52ch;
 }
 
-.est-grid { display: grid; gap: 1.5rem; }
+.est-grid { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 760px) {
-  .est-grid { grid-template-columns: 300px 1fr; align-items: start; }
+  .est-grid { grid-template-columns: 300px minmax(0, 1fr); align-items: start; }
 }
 @media (max-width: 759px) {
   .est-panel { order: 1; }
@@ -959,9 +959,6 @@ footer {
   margin-bottom: .6rem;
   padding: 0;
 }
-
-
-
 .est-hint { color: var(--muted); font-size: .9rem; margin: -.3rem 0 .75rem; }
 
 .est-hours { display: flex; align-items: center; gap: 1rem; }
@@ -973,13 +970,17 @@ footer {
 .est-hours input[type=range] { flex: 1; accent-color: var(--teal); height: 2rem; }
 
 /* Radio cards (setup, guests, travel) and checkbox cards (extras) share one look */
-.est-options { display: grid; grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-  gap: 12px; }
-.est-options.two { grid-template-columns: 1fr 1fr; }
+.est-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 12px;
+}
+.est-options.two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .est-options.chips { grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); }
 @media (max-width: 480px) { .est-options.two { grid-template-columns: 1fr; } }
 
 .est-option {
+  min-width: 0;
   display: flex;
   gap: .65rem;
   align-items: flex-start;
@@ -1004,6 +1005,19 @@ footer {
 .est-option .desc { color: var(--muted); font-size: .84rem; display: block; line-height: 1.35; }
 .est-option .price { margin-left: auto; font-weight: 600; white-space: nowrap; }
 .est-option .was { text-decoration: line-through; color: var(--muted); font-weight: 400; margin-right: .35rem; }
+
+.est-other { margin-top: .85rem; }
+.est-other label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .3rem; }
+.est-other input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  padding: .55rem .7rem;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+}
 
 .est-fineprint { color: var(--muted); font-size: .8rem; line-height: 1.4; margin: .85rem 0 0; }
 

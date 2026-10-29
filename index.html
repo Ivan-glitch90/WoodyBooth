@@ -203,16 +203,17 @@
           <div class="package-card h-100">
             <h3>Add-ons</h3>
             <p class="package-duration">Mix and match with either setup</p>
-            <p class="package-price"><span class="from">Starting at</span><span class="amt">$25</span></p>
-            <ul class="package-features priced">
-              <li><span>LED signs</span><span class="p"></span></li>
-              <li><span>Custom photo book</span><span class="p"></span></li>
-              <li><span>Digital photo storage</span><span class="p"></span></li>
-              <li><span>Photo strip magnets</span><span class="p"></span></li>
-              <li><span>Beer or wine pong</span><span class="p"></span></li>
-              <li><span>Champagne bar</span><span class="p"></span></li>
-              <li><span>Branded cornhole</span><span class="p"></span></li>
+            <p class="package-price"><span class="from">Priced in your personalized quote</span></p>
+            <ul class="package-features">
+              <li>LED signs</li>
+              <li>Custom photo book</li>
+              <li>Digital photo storage</li>
+              <li>Photo strip magnets</li>
+              <li>Beer or wine pong</li>
+              <li>Champagne bar</li>
+              <li>Branded cornhole</li>
             </ul>
+            <p class="package-note">Add-ons are available based on your event. Choose the ones that interest you in the estimate, or tell us what you have in mind, and we'll include it in your quote.</p>
             <p class="package-note">Travel beyond 50 miles from the Space Needle is extra.</p>
             <a href="#estimator" class="btn btn-book w-100">Build your estimate</a>
           </div>
@@ -405,6 +406,7 @@
     const [guests, setGuests] = useState("small");
     const [hours, setHours] = useState(INCLUDED_HOURS);
     const [picked, setPicked] = useState({});
+    const [other, setOther] = useState("");
     const [travel, setTravel] = useState("near");
 
     const quote = useMemo(() => {
@@ -413,7 +415,7 @@
       const extraHours = Math.max(0, hours - INCLUDED_HOURS);
       const hoursCost = extraHours * s.extraHour;
       const extras = ADDONS.filter(a => picked[a.id]);
-      //const extrasTotal = extras.reduce((sum, a) => sum + a.price, 0);
+      // Add-ons are priced in the personalized quote, so they are not part of this total
       const t = TRAVEL.find(x => x.id === travel);
       return {
         s, base, extraHours, hoursCost, extras, t,
@@ -441,7 +443,13 @@
       exp: quote.t.expenses ? "1" : "0",
       total: money(quote.total)
     });
+    if (other.trim()) params.set("other", other.trim().slice(0, 140));
     const contactHref = `${CONTACT_PAGE}?${params.toString()}`;
+
+    // What the total does not include yet
+    const notIncluded = [];
+    if (quote.extras.length || other.trim()) notIncluded.push("add-ons");
+    if (quote.t.expenses) notIncluded.push("travel expenses");
 
     const travelLine = quote.t.custom ? "Per agreement"
       : quote.t.fee ? `${money(quote.t.fee)} + expenses` : "Included";
@@ -465,8 +473,10 @@
             h("div", { className: "est-frame" },
               h("span", { className: "k" }, "Extras"),
               quote.extras.length
-               ? h("ul", null, quote.extras.map(a => h("li", { key: a.id }, a.name))) // ? h("ul", null, quote.extras.map(a => h("li", { key: a.id }, `${a.name} ${money(a.price)}`)))
-                : h("span", { className: "v" }, "None added")
+                ? h("ul", null, quote.extras.map(a => h("li", { key: a.id }, a.name)))
+                : (other.trim() ? null : h("span", { className: "v" }, "None added")),
+              other.trim() && h("span", { className: "sub" }, `Also requested: ${other.trim()}`),
+              (quote.extras.length || other.trim()) && h("span", { className: "sub" }, "Priced in your quote")
             ),
             h("div", { className: "est-frame" },
               h("span", { className: "k" }, "Travel"),
@@ -475,7 +485,7 @@
             h("div", { className: "est-frame total" },
               h("span", { className: "k" }, "Estimated total"),
               h("span", { className: "v", ref: totalRef }, money(quote.total)),
-              quote.t.expenses && h("span", { className: "plus" }, "plus travel expenses")
+              notIncluded.length > 0 && h("span", { className: "plus" }, `plus ${notIncluded.join(" and ")}, quoted separately`)
             ),
             h("div", { className: "est-strip-foot" }, "Woody Booth")
           ),
@@ -522,19 +532,19 @@
 
           h("fieldset", null,
             h("legend", null, "Extras"),
-            h("p", { className: "est-fineprint",style: { marginTop: "1px", marginBottom: "10px" } }, "Want to make your event extra special? Let us know which add-ons interest you, and we’ll include them in your personalized quote."),
+            h("p", { className: "est-fineprint", style: { marginTop: "1px", marginBottom: "10px" } }, "Want to make your event extra special? Let us know which add-ons interest you, and we’ll include them in your personalized quote."),
             h("div", { className: "est-options" },
               ADDONS.map(a => h("label", { key: a.id, className: "est-option" },
                 h("input", { type: "checkbox", checked: !!picked[a.id], onChange: () => toggle(a.id) }),
                 h("span", null,
                   h("span", { className: "name" }, a.name),
-                  h("span", { className: "desc" }, a.desc),
-                  a.was && h("span", { className: "desc" }, `Normally ${money(a.was)}, ${money(a.price)} with a booking`)
-                ),
-               /* h("span", { className: "price" },
-                  a.was && h("span", { className: "was" }, money(a.was)),
-                  "+" + money(a.price))*/
+                  h("span", { className: "desc" }, a.desc)
+                )
               ))
+            ),
+            h("div", { className: "est-other" },
+              h("label", { htmlFor: "est-other-input" }, "Something you don't see?"),
+              h("input", { id: "est-other-input", type: "text", maxLength: 140, value: other, placeholder: "Tell us what you have in mind", onChange: e => setOther(e.target.value) })
             ),
             h("p", { className: "est-fineprint" },
               "Alcohol is provided by the customer. We are not responsible for any alcohol-related incidents or the behavior of attendees, and we retain the right to refuse service.")
@@ -557,7 +567,7 @@
         )
       ),
       h("p", { className: "est-note" },
-        "This is an estimate. Your personalized quote will include taxes and any travel expenses. Festivals are charged per sitting, so contact us for those.")
+        "This is an estimate. Your personalized quote will include taxes, add-ons and any travel expenses. Festivals are charged per sitting, so contact us for those.")
     );
   }
 

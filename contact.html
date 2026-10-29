@@ -79,6 +79,7 @@
         <input type="hidden" name="hours" id="f_hours" value="">
         <input type="hidden" name="extras" id="f_extras" value="">
         <input type="hidden" name="travel_distance" id="f_travel" value="">
+        <input type="hidden" name="other_addons" id="f_other" value="">
         <input type="hidden" name="estimated_total" id="f_total" value="">
 
         <div class="mb-3">
@@ -193,6 +194,7 @@
     const hours = Number(q.get("hours"));
     const extras = clean(q.get("extras"), 300);
     const travel = clean(q.get("travel"), 40);
+    const other = clean(q.get("other"), 140);
     const expenses = q.get("exp") === "1";
     const total = /^\$[\d,]+$/.test(q.get("total") || "") ? q.get("total") : "";
 
@@ -215,13 +217,21 @@
       document.getElementById("f_hours").value = hours;
       document.getElementById("f_extras").value = extras || "None";
       document.getElementById("f_travel").value = travel;
-      document.getElementById("f_total").value = total + (expenses ? " plus travel expenses" : "");
+      // What the total does not include yet
+      const notIncluded = [];
+      if ((extras && extras !== "None") || other) notIncluded.push("add-ons");
+      if (expenses) notIncluded.push("travel expenses");
+      const plusText = notIncluded.length ? " plus " + notIncluded.join(" and ") : "";
+
+      document.getElementById("f_other").value = other;
+      document.getElementById("f_total").value = total + plusText;
 
       const extrasText = extras && extras !== "None" ? "extras: " + extras : "no extras";
       line("Your estimate",
         setup + ", " + guests.toLowerCase() + ", " + hours + " hours, " + extrasText +
+        (other ? ". Also requested: " + other : "") +
         ". Travel: " + travel.toLowerCase() + " from the Space Needle. Estimated total " + total +
-        (expenses ? " plus travel expenses" : "") + ".",
+        plusText + ".",
         "Change estimate");
     } else {
       line("No estimate attached", "Want a rough price first?", "Build an estimate");
