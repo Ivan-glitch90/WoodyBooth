@@ -203,7 +203,7 @@
           <div class="package-card h-100">
             <h3>Add-ons</h3>
             <p class="package-duration">Mix and match with either setup</p>
-            <p class="package-price"><span class="from">From</span><span class="amt">$25</span></p>
+            <p class="package-price"><span class="from">Starting at</span><span class="amt">$25</span></p>
             <ul class="package-features priced">
               <li><span>LED signs</span><span class="p"></span></li>
               <li><span>Custom photo book</span><span class="p"></span></li>
@@ -522,6 +522,7 @@
 
           h("fieldset", null,
             h("legend", null, "Extras"),
+            h("p", { className: "est-fineprint",style: { marginTop: "1px", marginBottom: "10px" } }, "Want to make your event extra special? Let us know which add-ons interest you, and we’ll include them in your personalized quote."),
             h("div", { className: "est-options" },
               ADDONS.map(a => h("label", { key: a.id, className: "est-option" },
                 h("input", { type: "checkbox", checked: !!picked[a.id], onChange: () => toggle(a.id) }),

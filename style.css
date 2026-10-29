@@ -959,6 +959,9 @@ footer {
   margin-bottom: .6rem;
   padding: 0;
 }
+
+
+
 .est-hint { color: var(--muted); font-size: .9rem; margin: -.3rem 0 .75rem; }
 
 .est-hours { display: flex; align-items: center; gap: 1rem; }
@@ -970,7 +973,8 @@ footer {
 .est-hours input[type=range] { flex: 1; accent-color: var(--teal); height: 2rem; }
 
 /* Radio cards (setup, guests, travel) and checkbox cards (extras) share one look */
-.est-options { display: grid; gap: .6rem; }
+.est-options { display: grid; grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  gap: 12px; }
 .est-options.two { grid-template-columns: 1fr 1fr; }
 .est-options.chips { grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); }
 @media (max-width: 480px) { .est-options.two { grid-template-columns: 1fr; } }
