@@ -205,13 +205,13 @@
             <p class="package-duration">Mix and match with either setup</p>
             <p class="package-price"><span class="from">From</span><span class="amt">$25</span></p>
             <ul class="package-features priced">
-              <li><span>LED signs</span><span class="p">$200</span></li>
-              <li><span>Custom photo book</span><span class="p">$125</span></li>
-              <li><span>Digital photo storage</span><span class="p">$25</span></li>
-              <li><span>Photo strip magnets</span><span class="p">$50</span></li>
-              <li><span>Beer or wine pong</span><span class="p">$150</span></li>
-              <li><span>Champagne bar</span><span class="p">$150</span></li>
-              <li><span>Branded cornhole</span><span class="p">$150</span></li>
+              <li><span>LED signs</span><span class="p"></span></li>
+              <li><span>Custom photo book</span><span class="p"></span></li>
+              <li><span>Digital photo storage</span><span class="p"></span></li>
+              <li><span>Photo strip magnets</span><span class="p"></span></li>
+              <li><span>Beer or wine pong</span><span class="p"></span></li>
+              <li><span>Champagne bar</span><span class="p"></span></li>
+              <li><span>Branded cornhole</span><span class="p"></span></li>
             </ul>
             <p class="package-note">Travel beyond 50 miles from the Space Needle is extra.</p>
             <a href="#estimator" class="btn btn-book w-100">Build your estimate</a>
@@ -413,11 +413,11 @@
       const extraHours = Math.max(0, hours - INCLUDED_HOURS);
       const hoursCost = extraHours * s.extraHour;
       const extras = ADDONS.filter(a => picked[a.id]);
-      const extrasTotal = extras.reduce((sum, a) => sum + a.price, 0);
+      //const extrasTotal = extras.reduce((sum, a) => sum + a.price, 0);
       const t = TRAVEL.find(x => x.id === travel);
       return {
         s, base, extraHours, hoursCost, extras, t,
-        total: base + hoursCost + extrasTotal + t.fee
+        total: base + hoursCost + t.fee
       };
     }, [setup, guests, hours, picked, travel]);
 
@@ -465,7 +465,7 @@
             h("div", { className: "est-frame" },
               h("span", { className: "k" }, "Extras"),
               quote.extras.length
-                ? h("ul", null, quote.extras.map(a => h("li", { key: a.id }, `${a.name} ${money(a.price)}`)))
+               ? h("ul", null, quote.extras.map(a => h("li", { key: a.id }, a.name))) // ? h("ul", null, quote.extras.map(a => h("li", { key: a.id }, `${a.name} ${money(a.price)}`)))
                 : h("span", { className: "v" }, "None added")
             ),
             h("div", { className: "est-frame" },
@@ -530,9 +530,9 @@
                   h("span", { className: "desc" }, a.desc),
                   a.was && h("span", { className: "desc" }, `Normally ${money(a.was)}, ${money(a.price)} with a booking`)
                 ),
-                h("span", { className: "price" },
+               /* h("span", { className: "price" },
                   a.was && h("span", { className: "was" }, money(a.was)),
-                  "+" + money(a.price))
+                  "+" + money(a.price))*/
               ))
             ),
             h("p", { className: "est-fineprint" },
